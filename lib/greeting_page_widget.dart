@@ -28,7 +28,9 @@ class GreetingPageWidget extends StatelessWidget {
               height: 32,
             ),
             Text('Hello there 👋', style: TextStyle(fontSize: 30)),
-            Text('This is my submission for Assignment 4'),
+            Text(
+                'This is Jay Mukeshkumar Mistry\'s submission for Assignment 4'),
+            Text('Student ID: 200508432'),
             SizedBox(
               height: 32,
             ),
