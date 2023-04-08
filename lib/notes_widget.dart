@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class NotesWidget extends StatefulWidget {
   const NotesWidget({Key? key}) : super(key: key);
