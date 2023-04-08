@@ -12,6 +12,17 @@ class _NotesWidgetState extends State<NotesWidget> {
   late final notes = <String>[];
 
   @override
+  void initState() {
+    super.initState();
+    notes.addAll([
+      'Get groceries from Walmart',
+      'Buy a new phone',
+      'Call mom',
+      'Call dad'
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -34,6 +45,7 @@ class _NotesWidgetState extends State<NotesWidget> {
                   actions: [
                     TextButton(
                       onPressed: () {
+                        noteTextController.clear();
                         Navigator.of(context).pop();
                       },
                       child: const Text(
@@ -46,6 +58,7 @@ class _NotesWidgetState extends State<NotesWidget> {
                         setState(() {
                           notes.add(noteTextController.text);
                         });
+                        noteTextController.clear();
                         Navigator.of(context).pop();
                       },
                       child: const Text('Add'),
