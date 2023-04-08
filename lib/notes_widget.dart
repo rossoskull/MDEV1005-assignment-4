@@ -8,12 +8,17 @@ class NotesWidget extends StatefulWidget {
 }
 
 class _NotesWidgetState extends State<NotesWidget> {
+  /// controller for the text field in the dialog box.
   late final TextEditingController noteTextController = TextEditingController();
+
+  /// list of notes.
   late final notes = <String>[];
 
   @override
   void initState() {
     super.initState();
+
+    /// add some initial notes.
     notes.addAll([
       'Get groceries from Walmart',
       'Buy a new phone',
@@ -31,6 +36,7 @@ class _NotesWidgetState extends State<NotesWidget> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          /// show the dialog box.
           showDialog(
               context: context,
               builder: (BuildContext context) {
@@ -45,6 +51,7 @@ class _NotesWidgetState extends State<NotesWidget> {
                   actions: [
                     TextButton(
                       onPressed: () {
+                        /// clear the text field and close the dialog box.
                         noteTextController.clear();
                         Navigator.of(context).pop();
                       },
@@ -55,6 +62,7 @@ class _NotesWidgetState extends State<NotesWidget> {
                     ),
                     TextButton(
                       onPressed: () {
+                        /// add the note to the list and close the dialog box.
                         setState(() {
                           notes.add(noteTextController.text);
                         });
@@ -87,6 +95,7 @@ class _NotesWidgetState extends State<NotesWidget> {
                     return Dismissible(
                       key: Key(notes[index]),
                       onDismissed: (direction) {
+                        /// remove the note from the list.
                         setState(() {
                           notes.removeAt(index);
                         });

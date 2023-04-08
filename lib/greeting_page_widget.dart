@@ -17,6 +17,8 @@ class GreetingPageWidget extends StatelessWidget {
                 width: 240,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
+
+                  /// show a random image from unsplash.it
                   image: DecorationImage(
                     image: NetworkImage('https://unsplash.it/1920/1920'),
                     fit: BoxFit.fill,
@@ -37,7 +39,7 @@ class GreetingPageWidget extends StatelessWidget {
                   onPressed: () {
                     GoRouter.of(context).push('/calculator');
                   },
-                  child: Text('Interest Calculator'),
+                  child: Text('CI Calculator'),
                 ),
                 SizedBox(
                   width: 24,

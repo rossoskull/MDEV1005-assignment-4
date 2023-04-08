@@ -8,6 +8,8 @@ void main() {
   runApp(MyApp());
 }
 
+/// This is the router for the app. It defines the routes and the pages that
+/// will be displayed when the user navigates to a specific route.
 GoRouter _router = GoRouter(
   routes: [
     GoRoute(
@@ -34,6 +36,8 @@ GoRouter _router = GoRouter(
   ],
 );
 
+/// This is the main widget for the app. It defines the theme and the router
+/// for the app.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

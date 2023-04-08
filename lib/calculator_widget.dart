@@ -4,16 +4,20 @@ import 'package:flutter/material.dart';
 
 class CalculatorWidget extends StatelessWidget {
   CalculatorWidget({Key? key}) : super(key: key);
+
+  /// controllers for the text fields.
   final TextEditingController principalController = TextEditingController();
   final TextEditingController tenureController = TextEditingController();
   final TextEditingController roiController = TextEditingController();
+
+  /// value notifier for the interest.
   final interest = ValueNotifier<double>(0.0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Compoud Interest Calculator'),
+        title: Text('CI Calculator'),
         elevation: 2,
       ),
       body: Center(
@@ -88,12 +92,14 @@ class CalculatorWidget extends StatelessWidget {
                 ),
               ),
               onPressed: () {
+                /// get the values from the text fields.
                 String principal = principalController.value.text;
                 String tenure = tenureController.value.text;
                 String roi = roiController.value.text;
 
-                // Perform input validation
+                // Perform input validation.
                 if (principal.isEmpty || tenure.isEmpty || roi.isEmpty) {
+                  /// show a snackbar with an error message.
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("Input values cannot be empty"),
@@ -102,14 +108,16 @@ class CalculatorWidget extends StatelessWidget {
                   return;
                 }
 
+                /// convert the values to double.
                 double? principalValue = double.tryParse(principal);
                 double? tenureValue = double.tryParse(tenure);
                 double? roiValue = double.tryParse(roi);
 
-                // check if input values contain only numbers
+                // check if input values contain only numbers.
                 if (principalValue == null ||
                     tenureValue == null ||
                     roiValue == null) {
+                  /// show a snackbar with an error message.
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("Input values must be numbers"),
@@ -118,10 +126,12 @@ class CalculatorWidget extends StatelessWidget {
                   return;
                 }
 
-                // calculate compound interest
+                /// calculate the interest.
                 double amount =
                     principalValue * pow((1 + (roiValue / 100)), tenureValue);
                 double interestValue = amount - principalValue;
+
+                /// update the interest value.
                 interest.value = interestValue;
               },
               child: Text('Calculate'),
