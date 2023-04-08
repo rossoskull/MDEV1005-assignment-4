@@ -37,7 +37,7 @@ class GreetingPageWidget extends StatelessWidget {
                   onPressed: () {
                     GoRouter.of(context).push('/calculator');
                   },
-                  child: Text('Calculator'),
+                  child: Text('Interest Calculator'),
                 ),
                 SizedBox(
                   width: 24,
